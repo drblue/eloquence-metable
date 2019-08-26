@@ -122,7 +122,7 @@ class Hooks
         return function ($next, $value, $args) {
             $key = $args->get('key');
 
-            if ($this->hasMeta($key)) {
+            if (strpos($key, 'pivot_') === false && $this->hasMeta($key)) {
                 return $this->setMeta($key, null);
             }
 
